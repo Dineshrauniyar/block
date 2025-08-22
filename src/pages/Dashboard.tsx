@@ -1,16 +1,22 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { 
-  TrendingUp, 
-  TrendingDown, 
-  DollarSign, 
-  Shield, 
-  ArrowUpDown, 
+import {
+  TrendingUp,
+  TrendingDown,
+  DollarSign,
+  Shield,
+  ArrowUpDown,
   PieChart,
   Eye,
-  Plus
+  Plus,
+  Sparkles,
+  BarChart3,
+  Activity
 } from 'lucide-react'
+import Card, { CardHeader, CardBody } from '../components/Card'
+import Button from '../components/Button'
+import Badge from '../components/Badge'
 import './Dashboard.css'
 
 export default function Dashboard() {
