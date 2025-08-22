@@ -155,6 +155,19 @@ export default function Dashboard() {
 
       {/* Positions */}
       <div className="positions-section">
+        {/* Analytics Visual */}
+        <div className="analytics-visual">
+          <img
+            src="https://images.pexels.com/photos/5716001/pexels-photo-5716001.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            alt="Business professionals discussing data charts and graphs"
+            className="analytics-image"
+          />
+          <div className="analytics-overlay">
+            <h3>Real-time Analytics</h3>
+            <p>Track your DeFi performance with advanced metrics</p>
+          </div>
+        </div>
+
         {/* Supply Positions */}
         <section className="positions-card">
           <div className="positions-header">
