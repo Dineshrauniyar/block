@@ -199,6 +199,12 @@
   font-family: 'Monaco', 'Menlo', monospace;
 }
 
+.wallet-balance {
+  font-size: 0.75rem;
+  color: #43e97b;
+  font-weight: 600;
+}
+
 /* Main Layout */
 .main-layout {
   flex: 1;
