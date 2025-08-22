@@ -282,9 +282,8 @@ export default function Dashboard() {
         </div>
       </section>
 
-      {/* Positions */}
-      <div className="positions-section">
-        {/* Analytics Visual */}
+      {/* Analytics Visual */}
+      <Card variant="gradient" padding="none" className="analytics-visual-card">
         <div className="analytics-visual">
           <img
             src="https://images.pexels.com/photos/5716001/pexels-photo-5716001.jpeg?auto=compress&cs=tinysrgb&w=1200"
@@ -292,95 +291,127 @@ export default function Dashboard() {
             className="analytics-image"
           />
           <div className="analytics-overlay">
-            <h3>Real-time Analytics</h3>
-            <p>Track your DeFi performance with advanced metrics</p>
+            <div className="analytics-content">
+              <BarChart3 size={32} />
+              <h3>Real-time Analytics</h3>
+              <p>Track your DeFi performance with advanced metrics and insights</p>
+              <Button variant="outline" size="sm" rightIcon={<ArrowUpDown size={16} />}>
+                View Analytics
+              </Button>
+            </div>
           </div>
         </div>
+      </Card>
 
+      {/* Positions */}
+      <div className="positions-section">
         {/* Supply Positions */}
-        <section className="positions-card">
-          <div className="positions-header">
-            <h2>Your Supply Positions</h2>
-            <Link to="/lending" className="view-all-btn">
-              <Eye size={16} />
-              View All
-            </Link>
-          </div>
-          
-          <div className="positions-table">
-            <div className="table-header">
-              <span>Asset</span>
-              <span>Amount</span>
-              <span>Value</span>
-              <span>APY</span>
-              <span>Action</span>
-            </div>
-            
-            {supplyPositions.map((position, index) => (
-              <motion.div
-                key={position.asset}
-                className="table-row"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+        <Card variant="glass" padding="xl">
+          <CardHeader
+            title="Your Supply Positions"
+            subtitle="Assets earning interest"
+            action={
+              <Button
+                variant="ghost"
+                size="sm"
+                leftIcon={<Eye size={16} />}
+                onClick={() => window.location.href = '/lending'}
               >
-                <div className="asset-info">
-                  <div className="asset-icon">{position.asset}</div>
-                  <span>{position.asset}</span>
-                </div>
-                <span>{position.amount}</span>
-                <span>{position.value}</span>
-                <span className="apy-positive">{position.apy}</span>
-                <button className="action-btn">
-                  <Plus size={16} />
-                  Supply More
-                </button>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+                View All
+              </Button>
+            }
+          />
+
+          <CardBody>
+            <div className="positions-table">
+              <div className="table-header">
+                <span>Asset</span>
+                <span>Amount</span>
+                <span>Value</span>
+                <span>APY</span>
+                <span>Action</span>
+              </div>
+
+              {supplyPositions.map((position, index) => (
+                <motion.div
+                  key={position.asset}
+                  className="table-row"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <div className="asset-info">
+                    <div className="asset-icon">{position.asset}</div>
+                    <div className="asset-details">
+                      <span className="asset-name">{position.asset}</span>
+                      <Badge variant="success" size="sm">Earning</Badge>
+                    </div>
+                  </div>
+                  <span className="font-mono">{position.amount}</span>
+                  <span className="font-mono">{position.value}</span>
+                  <Badge variant="success" size="sm">{position.apy}</Badge>
+                  <Button variant="primary" size="sm" leftIcon={<Plus size={14} />}>
+                    Supply
+                  </Button>
+                </motion.div>
+              ))}
+            </div>
+          </CardBody>
+        </Card>
 
         {/* Borrow Positions */}
-        <section className="positions-card">
-          <div className="positions-header">
-            <h2>Your Borrow Positions</h2>
-            <Link to="/borrowing" className="view-all-btn">
-              <Eye size={16} />
-              View All
-            </Link>
-          </div>
-          
-          <div className="positions-table">
-            <div className="table-header">
-              <span>Asset</span>
-              <span>Amount</span>
-              <span>Value</span>
-              <span>APY</span>
-              <span>Action</span>
-            </div>
-            
-            {borrowPositions.map((position, index) => (
-              <motion.div
-                key={position.asset}
-                className="table-row"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+        <Card variant="glass" padding="xl">
+          <CardHeader
+            title="Your Borrow Positions"
+            subtitle="Assets you've borrowed"
+            action={
+              <Button
+                variant="ghost"
+                size="sm"
+                leftIcon={<Eye size={16} />}
+                onClick={() => window.location.href = '/borrowing'}
               >
-                <div className="asset-info">
-                  <div className="asset-icon">{position.asset}</div>
-                  <span>{position.asset}</span>
-                </div>
-                <span>{position.amount}</span>
-                <span>{position.value}</span>
-                <span className="apy-negative">{position.apy}</span>
-                <button className="action-btn secondary">
-                  Repay
-                </button>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+                View All
+              </Button>
+            }
+          />
+
+          <CardBody>
+            <div className="positions-table">
+              <div className="table-header">
+                <span>Asset</span>
+                <span>Amount</span>
+                <span>Value</span>
+                <span>APY</span>
+                <span>Action</span>
+              </div>
+
+              {borrowPositions.map((position, index) => (
+                <motion.div
+                  key={position.asset}
+                  className="table-row"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <div className="asset-info">
+                    <div className="asset-icon">{position.asset}</div>
+                    <div className="asset-details">
+                      <span className="asset-name">{position.asset}</span>
+                      <Badge variant="warning" size="sm">Borrowed</Badge>
+                    </div>
+                  </div>
+                  <span className="font-mono">{position.amount}</span>
+                  <span className="font-mono">{position.value}</span>
+                  <Badge variant="error" size="sm">{position.apy}</Badge>
+                  <Button variant="secondary" size="sm">
+                    Repay
+                  </Button>
+                </motion.div>
+              ))}
+            </div>
+          </CardBody>
+        </Card>
       </div>
     </div>
   )
