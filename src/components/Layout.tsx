@@ -151,14 +151,34 @@ export default function Layout({ children }: LayoutProps) {
               {navigation.find(item => isActive(item.href))?.name || 'DeFiCross'}
             </h1>
             
-            <motion.button 
-              className="connect-wallet-btn"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Wallet size={20} />
-              Connect Wallet
-            </motion.button>
+            {isConnected ? (
+              <motion.div
+                className="wallet-dropdown"
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="wallet-display">
+                  <div className="wallet-avatar"></div>
+                  <div className="wallet-text">
+                    <span className="wallet-address-short">
+                      {address ? `${address.slice(0, 6)}...${address.slice(-4)}` : ''}
+                    </span>
+                    <span className="wallet-balance-text">{balance} ETH</span>
+                  </div>
+                  <ChevronDown size={16} />
+                </div>
+              </motion.div>
+            ) : (
+              <motion.button
+                className="connect-wallet-btn"
+                onClick={connectWallet}
+                disabled={isConnecting}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Wallet size={20} />
+                {isConnecting ? 'Connecting...' : 'Connect Wallet'}
+              </motion.button>
+            )}
           </div>
         </header>
 
