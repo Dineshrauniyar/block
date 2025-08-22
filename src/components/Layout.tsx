@@ -25,6 +25,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const location = useLocation()
+  const { isConnected, address, balance, isConnecting, connectWallet, disconnectWallet } = useWallet()
 
   const navigation = [
     { name: 'Dashboard', href: '/', icon: Home },
