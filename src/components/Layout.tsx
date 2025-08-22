@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { 
-  Wallet, 
-  Home, 
-  TrendingUp, 
-  TrendingDown, 
-  PieChart, 
-  ArrowUpDown, 
-  BarChart3, 
+import {
+  Wallet,
+  Home,
+  TrendingUp,
+  TrendingDown,
+  PieChart,
+  ArrowUpDown,
+  BarChart3,
   Settings,
   Menu,
   X,
-  Zap
+  Zap,
+  ChevronDown
 } from 'lucide-react'
+import { useWallet } from '../contexts/WalletContext'
 import './Layout.css'
 
 interface LayoutProps {
