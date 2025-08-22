@@ -130,23 +130,57 @@ export default function Dashboard() {
 
       {/* Portfolio Overview */}
       <section className="portfolio-overview">
+        <motion.div
+          className="overview-header"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="overview-title">
+            <h2>Portfolio Overview</h2>
+            <p>Track your DeFi positions and performance in real-time</p>
+          </div>
+          <Button variant="ghost" size="sm" leftIcon={<Activity size={16} />}>
+            Refresh Data
+          </Button>
+        </motion.div>
+
         <div className="overview-grid">
           {portfolioData.map((item, index) => (
-            <motion.div
+            <Card
               key={item.name}
-              className="overview-card"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              variant="glass"
+              hover
+              padding="lg"
+              className={`overview-card ${index === 0 ? 'overview-card-featured' : ''}`}
             >
-              <div className="card-header">
-                <h3>{item.name}</h3>
-                <div className={`change ${item.positive ? 'positive' : 'negative'}`}>
-                  {item.change}
+              <div className="overview-card-content">
+                <div className="overview-card-header">
+                  <div className="overview-card-icon">
+                    {index === 0 && <DollarSign size={20} />}
+                    {index === 1 && <TrendingDown size={20} />}
+                    {index === 2 && <TrendingUp size={20} />}
+                    {index === 3 && <Shield size={20} />}
+                  </div>
+                  <Badge
+                    variant={item.positive ? 'success' : 'error'}
+                    size="sm"
+                  >
+                    {item.change}
+                  </Badge>
                 </div>
+                <div className="overview-card-body">
+                  <h3 className="overview-card-label">{item.name}</h3>
+                  <div className="overview-card-value">{item.value}</div>
+                </div>
+                {index === 0 && (
+                  <div className="overview-card-trend">
+                    <Sparkles size={16} />
+                    <span>+12.3% this month</span>
+                  </div>
+                )}
               </div>
-              <div className="card-value">{item.value}</div>
-            </motion.div>
+            </Card>
           ))}
         </div>
       </section>
