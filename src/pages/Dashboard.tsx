@@ -93,30 +93,62 @@ export default function Dashboard() {
 
       {/* Quick Actions */}
       <section className="quick-actions">
-        <h2>Quick Actions</h2>
+        <div className="actions-header">
+          <div className="actions-text">
+            <h2>Quick Actions</h2>
+            <p>Start your DeFi journey with these essential tools</p>
+          </div>
+          <div className="actions-image">
+            <img
+              src="https://images.pexels.com/photos/2068664/pexels-photo-2068664.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Person using mobile phone for currency trading"
+              className="actions-bg"
+            />
+          </div>
+        </div>
         <div className="actions-grid">
           <Link to="/lending" className="action-card">
-            <TrendingUp className="action-icon" />
-            <h3>Supply Assets</h3>
-            <p>Earn interest on your crypto</p>
+            <div className="action-visual">
+              <TrendingUp className="action-icon" />
+              <div className="action-bg supply"></div>
+            </div>
+            <div className="action-content">
+              <h3>Supply Assets</h3>
+              <p>Earn interest on your crypto</p>
+            </div>
           </Link>
-          
+
           <Link to="/borrowing" className="action-card">
-            <TrendingDown className="action-icon" />
-            <h3>Borrow Assets</h3>
-            <p>Access liquidity without selling</p>
+            <div className="action-visual">
+              <TrendingDown className="action-icon" />
+              <div className="action-bg borrow"></div>
+            </div>
+            <div className="action-content">
+              <h3>Borrow Assets</h3>
+              <p>Access liquidity without selling</p>
+            </div>
           </Link>
-          
+
           <Link to="/bridge" className="action-card">
-            <ArrowUpDown className="action-icon" />
-            <h3>Cross-Chain Bridge</h3>
-            <p>Move assets between chains</p>
+            <div className="action-visual">
+              <ArrowUpDown className="action-icon" />
+              <div className="action-bg bridge"></div>
+            </div>
+            <div className="action-content">
+              <h3>Cross-Chain Bridge</h3>
+              <p>Move assets between chains</p>
+            </div>
           </Link>
-          
+
           <Link to="/portfolio" className="action-card">
-            <PieChart className="action-icon" />
-            <h3>View Portfolio</h3>
-            <p>Track your positions</p>
+            <div className="action-visual">
+              <PieChart className="action-icon" />
+              <div className="action-bg portfolio"></div>
+            </div>
+            <div className="action-content">
+              <h3>View Portfolio</h3>
+              <p>Track your positions</p>
+            </div>
           </Link>
         </div>
       </section>
