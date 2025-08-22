@@ -33,6 +33,41 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-content">
+          <div className="hero-text">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              Welcome to <span className="gradient-text">DeFiCross</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Your gateway to cross-chain DeFi. Lend, borrow, and earn across Ethereum and Solana with institutional-grade security.
+            </motion.p>
+          </div>
+          <motion.div
+            className="hero-image"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <img
+              src="https://images.pexels.com/photos/30547584/pexels-photo-30547584.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Abstract futuristic cyber landscape with digital matrix and glowing lights"
+              className="hero-bg-image"
+            />
+            <div className="hero-overlay"></div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Portfolio Overview */}
       <section className="portfolio-overview">
         <div className="overview-grid">
