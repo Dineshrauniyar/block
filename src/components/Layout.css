@@ -272,6 +272,58 @@
   transform: translateY(-2px);
 }
 
+.connect-wallet-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Wallet Dropdown */
+.wallet-dropdown {
+  cursor: pointer;
+}
+
+.wallet-display {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(67, 233, 123, 0.1);
+  border: 1px solid rgba(67, 233, 123, 0.3);
+  border-radius: var(--border-radius);
+  transition: all 0.2s;
+}
+
+.wallet-display:hover {
+  background: rgba(67, 233, 123, 0.15);
+  border-color: rgba(67, 233, 123, 0.5);
+}
+
+.wallet-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+}
+
+.wallet-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.wallet-address-short {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.wallet-balance-text {
+  font-size: 0.75rem;
+  color: #43e97b;
+  font-weight: 500;
+}
+
 /* Page Content */
 .page-content {
   flex: 1;
