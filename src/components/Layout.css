@@ -371,11 +371,24 @@
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
   }
-  
+
   .connect-wallet-btn span {
     display: none;
   }
-  
+
+  .wallet-display {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .wallet-text {
+    display: none;
+  }
+
+  .wallet-avatar {
+    width: 20px;
+    height: 20px;
+  }
+
   .page-title {
     font-size: 1.25rem;
   }
