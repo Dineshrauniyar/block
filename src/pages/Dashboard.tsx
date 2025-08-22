@@ -187,63 +187,98 @@ export default function Dashboard() {
 
       {/* Quick Actions */}
       <section className="quick-actions">
-        <div className="actions-header">
-          <div className="actions-text">
-            <h2>Quick Actions</h2>
-            <p>Start your DeFi journey with these essential tools</p>
+        <Card variant="gradient" padding="xl" className="actions-header-card">
+          <div className="actions-header">
+            <div className="actions-text">
+              <h2>Quick Actions</h2>
+              <p>Start your DeFi journey with these essential tools</p>
+            </div>
+            <div className="actions-image">
+              <img
+                src="https://images.pexels.com/photos/2068664/pexels-photo-2068664.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Person using mobile phone for currency trading"
+                className="actions-bg"
+              />
+            </div>
           </div>
-          <div className="actions-image">
-            <img
-              src="https://images.pexels.com/photos/2068664/pexels-photo-2068664.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Person using mobile phone for currency trading"
-              className="actions-bg"
-            />
-          </div>
-        </div>
+        </Card>
+
         <div className="actions-grid">
-          <Link to="/lending" className="action-card">
+          <Card
+            variant="glass"
+            hover
+            padding="lg"
+            onClick={() => window.location.href = '/lending'}
+            className="action-card supply-card"
+          >
             <div className="action-visual">
-              <TrendingUp className="action-icon" />
-              <div className="action-bg supply"></div>
+              <div className="action-icon-wrapper supply">
+                <TrendingUp className="action-icon" />
+              </div>
             </div>
             <div className="action-content">
               <h3>Supply Assets</h3>
-              <p>Earn interest on your crypto</p>
+              <p>Earn interest on your crypto assets</p>
+              <Badge variant="success" size="sm">4.2% APY</Badge>
             </div>
-          </Link>
+          </Card>
 
-          <Link to="/borrowing" className="action-card">
+          <Card
+            variant="glass"
+            hover
+            padding="lg"
+            onClick={() => window.location.href = '/borrowing'}
+            className="action-card borrow-card"
+          >
             <div className="action-visual">
-              <TrendingDown className="action-icon" />
-              <div className="action-bg borrow"></div>
+              <div className="action-icon-wrapper borrow">
+                <TrendingDown className="action-icon" />
+              </div>
             </div>
             <div className="action-content">
               <h3>Borrow Assets</h3>
               <p>Access liquidity without selling</p>
+              <Badge variant="warning" size="sm">5.1% APY</Badge>
             </div>
-          </Link>
+          </Card>
 
-          <Link to="/bridge" className="action-card">
+          <Card
+            variant="glass"
+            hover
+            padding="lg"
+            onClick={() => window.location.href = '/bridge'}
+            className="action-card bridge-card"
+          >
             <div className="action-visual">
-              <ArrowUpDown className="action-icon" />
-              <div className="action-bg bridge"></div>
+              <div className="action-icon-wrapper bridge">
+                <ArrowUpDown className="action-icon" />
+              </div>
             </div>
             <div className="action-content">
               <h3>Cross-Chain Bridge</h3>
               <p>Move assets between chains</p>
+              <Badge variant="cyan" size="sm">2-5 mins</Badge>
             </div>
-          </Link>
+          </Card>
 
-          <Link to="/portfolio" className="action-card">
+          <Card
+            variant="glass"
+            hover
+            padding="lg"
+            onClick={() => window.location.href = '/portfolio'}
+            className="action-card portfolio-card"
+          >
             <div className="action-visual">
-              <PieChart className="action-icon" />
-              <div className="action-bg portfolio"></div>
+              <div className="action-icon-wrapper portfolio">
+                <PieChart className="action-icon" />
+              </div>
             </div>
             <div className="action-content">
               <h3>View Portfolio</h3>
               <p>Track your positions</p>
+              <Badge variant="purple" size="sm">Live</Badge>
             </div>
-          </Link>
+          </Card>
         </div>
       </section>
 
