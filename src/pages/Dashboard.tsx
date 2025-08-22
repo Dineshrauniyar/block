@@ -33,6 +33,60 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
+      {/* Floating Decorations */}
+      <div className="floating-decorations">
+        <motion.div
+          className="floating-crypto bitcoin"
+          animate={{
+            y: [0, -20, 0],
+            rotate: [0, 10, 0]
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <img
+            src="https://images.pexels.com/photos/8830896/pexels-photo-8830896.jpeg?auto=compress&cs=tinysrgb&w=300"
+            alt="Bitcoin coin"
+            className="crypto-icon"
+          />
+        </motion.div>
+
+        <motion.div
+          className="floating-crypto ethereum"
+          animate={{
+            y: [0, -15, 0],
+            rotate: [0, -8, 0]
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        >
+          <div className="eth-icon">ETH</div>
+        </motion.div>
+
+        <motion.div
+          className="floating-crypto solana"
+          animate={{
+            y: [0, -25, 0],
+            rotate: [0, 12, 0]
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        >
+          <div className="sol-icon">SOL</div>
+        </motion.div>
+      </div>
+
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
