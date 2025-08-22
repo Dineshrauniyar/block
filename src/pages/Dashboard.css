@@ -619,19 +619,51 @@
   .dashboard {
     padding: 0 0.5rem;
   }
-  
+
   .overview-card,
   .action-card,
   .positions-card {
     padding: 1rem;
   }
-  
+
   .action-card {
     gap: 0.5rem;
   }
-  
+
   .action-icon {
     width: 24px;
     height: 24px;
+  }
+
+  .hero-text {
+    padding: 1rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .actions-header {
+    padding: 1rem;
+  }
+
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-visual {
+    height: 120px;
+  }
+
+  .analytics-overlay h3 {
+    font-size: 1rem;
+  }
+
+  .analytics-overlay p {
+    font-size: 0.75rem;
   }
 }
