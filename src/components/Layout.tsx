@@ -93,17 +93,45 @@ export default function Layout({ children }: LayoutProps) {
 
         {/* Wallet Status */}
         <div className="sidebar-wallet">
-          <motion.button 
-            className="wallet-status"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Wallet size={20} />
-            <div className="wallet-info">
-              <span className="wallet-label">Wallet</span>
-              <span className="wallet-address">0x1234...5678</span>
-            </div>
-          </motion.button>
+          {isConnected ? (
+            <motion.div
+              className="wallet-status connected"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Wallet size={20} />
+              <div className="wallet-info">
+                <span className="wallet-label">Connected</span>
+                <span className="wallet-address">
+                  {address ? `${address.slice(0, 6)}...${address.slice(-4)}` : ''}
+                </span>
+                <span className="wallet-balance">{balance} ETH</span>
+              </div>
+              <motion.button
+                className="disconnect-btn"
+                onClick={disconnectWallet}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <X size={14} />
+              </motion.button>
+            </motion.div>
+          ) : (
+            <motion.button
+              className="wallet-status disconnected"
+              onClick={connectWallet}
+              disabled={isConnecting}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Wallet size={20} />
+              <div className="wallet-info">
+                <span className="wallet-label">
+                  {isConnecting ? 'Connecting...' : 'Connect Wallet'}
+                </span>
+              </div>
+            </motion.button>
+          )}
         </div>
       </motion.aside>
 
